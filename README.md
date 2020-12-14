@@ -1,4 +1,5 @@
-# docker-project
+# Docker project
+
 A docker swarm containing:
 - a web service for a simple todo API built in nodejs
 - a database service running on a mongo instance and mounted to a local volume
