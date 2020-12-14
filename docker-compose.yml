@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  web:
+    image: todo-app
+    ports:
+      - "8080:3000"
+    networks:
+      - backend
+    deploy:
+      mode: replicated
+      placement:
+        max_replicas_per_node: 3
+  db:
+    image: mongo:latest
+    deploy:
+      mode: replicated
+      placement:
+        max_replicas_per_node: 1
+    networks:
+      - backend
+    volumes:
+      - db-data:/data/db
+
+networks:
+  backend:
+
+volumes:
+  db-data:
